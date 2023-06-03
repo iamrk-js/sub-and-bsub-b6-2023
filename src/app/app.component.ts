@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { UsernameService } from './service/username.service';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'sub';
+  constructor(private _usernameService : UsernameService){
+
+  }
+  addUser(username:string){
+    this._usernameService.userSubject.next(username)
+  }
 }
